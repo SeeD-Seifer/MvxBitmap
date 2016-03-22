@@ -33,16 +33,22 @@ namespace MvxBitmap.Core.ViewModels
 
 			int i = 0;
 
+			int shortDelay = 50;
+			int shortDelayMin = 10;
+			int shortDelayStep = 5;
+
 			while (!stopped)
 			{
-				await Task.Delay (50);
+				await Task.Delay (shortDelay);
 
 				i++;
 				if (i >= urls.Count)
 				{
+					shortDelay = Math.Max (shortDelayMin, shortDelay - shortDelayStep);
+
 					i = 0;
 					NextLoopStarted?.Invoke (this, EventArgs.Empty);
-					await Task.Delay (1000);
+					await Task.Delay (300);
 				}
 
 				var url = urls [i];
