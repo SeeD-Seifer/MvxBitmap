@@ -17,7 +17,7 @@ namespace MvxBitmap.Droid.Bootstrap
 		{
 			base.Load(manager);
 
-			Mvx.RegisterSingleton<IMvxImageCache<Bitmap>>(() => CreateCache());
+			//Mvx.RegisterSingleton<IMvxImageCache<Bitmap>>(() => CreateCache());
 		}
 
 		private IMvxImageCache<Bitmap> CreateCache()

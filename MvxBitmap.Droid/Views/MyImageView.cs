@@ -12,24 +12,24 @@ namespace MvxBitmap.Droid
 		{
 		}
 
-		public override void SetImageBitmap (Bitmap bitmap)
-		{
-			// TODO this check avoids crashes when MvxImageView disposed
-			if (Handle == IntPtr.Zero) {
-				return;
-			}
-
-			if (bitmap != null)
-			{
-				// TODO this check avoids crashes when Bitmap disposed
-				if (bitmap.Handle == IntPtr.Zero || bitmap.IsRecycled)
-				{
-					return;
-				}
-			}
-
-			base.SetImageBitmap (bitmap);
-		}
+//		public override void SetImageBitmap (Bitmap bitmap)
+//		{
+//			// TODO this check avoids crashes when MvxImageView disposed
+//			if (Handle == IntPtr.Zero) {
+//				return;
+//			}
+//
+//			if (bitmap != null)
+//			{
+//				// TODO this check avoids crashes when Bitmap disposed
+//				if (bitmap.Handle == IntPtr.Zero || bitmap.IsRecycled)
+//				{
+//					return;
+//				}
+//			}
+//
+//			base.SetImageBitmap (bitmap);
+//		}
 	}
 }
 
