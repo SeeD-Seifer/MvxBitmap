@@ -12,8 +12,8 @@ The speed of image loading should lead to in-memory-cache invalidation, which of
 because of race between Bitmap disposal and it's render in MvxImageView.
 
 Based on this project there are found few fixes for the issues in MvvmCross version 4.0.0:
-https://github.com/MvvmCross/MvvmCross-Plugins/issues/31
-https://github.com/MvvmCross/MvvmCross-Plugins/issues/41
+- https://github.com/MvvmCross/MvvmCross-Plugins/issues/31
+- https://github.com/MvvmCross/MvvmCross-Plugins/issues/41
 
 ```ConcurrentImageCache``` and ```ImmutableImageCache``` are two options of solution.
 ```ConcurrentImageCahce``` looks a better solution for me, but PCL does not have ConcurrentDictionary support.
