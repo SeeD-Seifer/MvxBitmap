@@ -1,6 +1,6 @@
 Simple project to test MvvmCross's DownloadCache pluging for Android (for now).
 
-### Application flow
+#### Application flow
 - Load list of image urls on startup
 - In a loop request to show a new image (with a very short dealy between requests)
 - After all images shown, clean up the screen and start over again after larger delay
@@ -19,3 +19,15 @@ Based on this project there are found few fixes for the issues in MvvmCross vers
 ```ConcurrentImageCahce``` looks a better solution for me, but PCL does not have ConcurrentDictionary support.
 
 This project for sure will be usefull for futher Bitmap issues investgation in Xamarin + MvvmCross projects.
+
+
+#### Crash reproduce
+
+1. Use version 4.0.0 of MvvmCross and it's plugins
+1. Open ```DownloadCachePluginBootstrap``` class and choose default MvxImageView implementation in ```CreateCache()```
+1. Open ```MyImageView``` and comment ```SetImageBitmap()``` method
+
+#### Fix testing
+
+1. Use ```ConcurrentImageCache``` or ```ImmutableImageCache``` in ```DownloadCachePluginBootstrap.CreateCache()```
+1. Use ```MyImageView.SetImageBitmap()``` method

@@ -18,7 +18,6 @@ namespace MvxBitmap.Droid.Bootstrap
 			base.Load(manager);
 
 			Mvx.RegisterSingleton<IMvxImageCache<Bitmap>>(() => CreateCache());
-			//Mvx.RegisterType<IMvxImageHelper<Bitmap>, MyDynamicImageHelper<Bitmap>>();
 		}
 
 		private IMvxImageCache<Bitmap> CreateCache()
@@ -30,7 +29,12 @@ namespace MvxBitmap.Droid.Bootstrap
 				configuration.CacheFolderPath,
 				configuration.MaxFiles,
 				configuration.MaxFileAge);
-			var fileCache = new MyImageCache<Bitmap>(fileDownloadCache, configuration.MaxInMemoryFiles, 
+
+			// TODO change ImageCache for different cases
+			// - use MvxImageCache for default behaviour (which leads to often crashes)
+			// - use ImmutableImageCache or ConcurrentImageCache to test the fix
+
+			var fileCache = new ImmutableImageCache<Bitmap>(fileDownloadCache, configuration.MaxInMemoryFiles, 
 				configuration.MaxInMemoryBytes, configuration.DisposeOnRemoveFromCache);
 			return fileCache;
 		}

@@ -14,20 +14,17 @@ namespace MvxBitmap.Droid
 
 		public override void SetImageBitmap (Bitmap bitmap)
 		{
+			// TODO this check avoids crashes when MvxImageView disposed
 			if (Handle == IntPtr.Zero) {
 				return;
 			}
 
 			if (bitmap != null)
 			{
-				if (bitmap.Handle == IntPtr.Zero)
+				// TODO this check avoids crashes when Bitmap disposed
+				if (bitmap.Handle == IntPtr.Zero || bitmap.IsRecycled)
 				{
-					//throw new InvalidOperationException ("Bitmap destroyed");
 					return;
-				}
-				if (bitmap.IsRecycled)
-				{
-					throw new InvalidOperationException ("Bitmap recycled");
 				}
 			}
 
