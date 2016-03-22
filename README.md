@@ -31,3 +31,9 @@ This project for sure will be usefull for futher Bitmap issues investgation in X
 
 1. Use ```ConcurrentImageCache``` or ```ImmutableImageCache``` in ```DownloadCachePluginBootstrap.CreateCache()```
 1. Use ```MyImageView.SetImageBitmap()``` method
+
+
+#### MvvmCross 4.1.0 testing
+
+Switch to mvx4.1 branch to test MvvmCross 4.1.0 (custom fixes disabled there)
+ 
